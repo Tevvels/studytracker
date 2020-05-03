@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './style.scss';
+import {BrowserRouter as Router, Route} from "react-router-dom";
+
+import StudyLog from "./components/StudyLog.component";
+import LogDay from "./components/LogDay.component";
+import EditStudyLog from "./components/EditStudyLog.component";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <div className="App"></div>
+    <Route path="/" exact component={StudyLog}/>
+    <Route path="/create" exact component={LogDay}/>
+    <Route path="/update/:id" exact component={EditStudyLog}/>
+
+    </Router>
   );
 }
 
 export default App;
+ 
